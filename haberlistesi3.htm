@@ -1,0 +1,74 @@
+<center>
+  <font color="silver" size="4">Haber Listesi</font> <b>
+    <p><br></p>
+    <center>
+      <table border="1" cellspacing="0" cellpadding="0">
+        <form action="http://www.batur.net/uye/email.btr?id=onur1913" onsubmit="return btr_gonder();" name="formbtr"
+          method="POST"></form>
+        <tbody>
+          <tr>
+            <td>
+              <table border="0" cellspacing="1">
+                <tbody>
+                  <tr align="center">
+                    <td colspan="3" bgcolor="#808080">
+                      <font face="Arial" size="2" color="#ffffff"><strong>Haber Listemize Katılın!</strong></font>
+                    </td>
+                  </tr>
+                  <tr align="center">
+                    <td colspan="3"><input class="nbx" type="text" name="email" size="25" value="em@il adresiniz"
+                        onfocus="btr_sil()"></td>
+                  </tr>
+                  <tr align="center">
+                    <td valign="middle">
+                      <font face="Arial" size="2"><input class="nb" type="radio" name="durum" value="ekle"
+                          checked="">Ekle</font>
+                    </td>
+                    <td valign="middle">
+                      <font face="Arial" size="2"><input class="nb" type="radio" name="durum" value="cikar">Çıkar</font>
+                    </td>
+                    <td valign="top"><input class="nbx" type="submit" value="Gönder!"
+                        style="font-family: verdana; font-size: 8pt"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </center>
+  </b>
+</center>
+<script language="javaScript">
+    function btr_radio() {
+      for (var i = 0; i < document.forms['formbtr'].elements['durum'].length; i++) {
+        var e = document.forms['formbtr'].elements['durum'][i];
+        if (e.checked) {
+          deger = document.forms['formbtr'].elements['durum'][i].value;
+          return deger;
+        }
+      }
+      return false;
+    }
+
+  function btr_gonder() {
+    f_email = document.forms['formbtr'].email.value;
+    f_durum = btr_radio();
+    query = '?id=onur1913&durum=' + f_durum + '&email=' + f_email;
+    urll = 'http://www.batur.net/uye/email.btr' + query;
+    btr_wopen(urll);
+    return false;
+  }
+
+  function btr_sil() {
+    metin = document.forms['formbtr'].email.value;
+    if (metin == "em@il adresiniz") document.forms['formbtr'].email.value = "";
+  }
+
+  function btr_wopen(adres) {
+    yuk = (screen.height / 2) - 100;
+    gen = (screen.width / 2) - 235;
+    yeni = window.open(adres, 'yenip', 'location=no,scrollbars=no,width=470,height=200,top=' + yuk + ',left=' + gen);
+  }
+</script>
